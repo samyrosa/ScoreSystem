@@ -1,18 +1,38 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    margin: 0;
+    padding: 0;
+    background-color: #E1DEE6;
+}
+
+#retanguloFundo {
+    background-color: #14213D;
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+#conteudoPagina {
+    z-index: 1;
+    position: relative;
+}
+
+#cartaoUsuario {
+    height: 100%;
 }
