@@ -36,3 +36,7 @@ body {
 #cartaoUsuario {
     height: 100%;
 }
+
+table {
+    font-size: 13px
+}
