@@ -11,9 +11,12 @@ html {
 html {
     position: relative;
     min-height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
 body {
+    width: 100%;
     margin-bottom: 60px;
     margin: 0;
     padding: 0;
@@ -26,6 +29,10 @@ body {
     width: 100%;
     position: absolute;
     z-index: -1;
+}
+
+.titulo {
+    font-family: 'Comfortaa', cursive;
 }
 
 #conteudoPagina {
