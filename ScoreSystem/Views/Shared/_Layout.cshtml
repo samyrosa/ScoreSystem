@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <div id="retanguloFundo"></div>
+    <div id="retanguloFundo" class="shadow"></div>
     <div class="conteudoPagina container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
             <div class="col-md-3 mb-2 mb-md-0">
@@ -33,8 +33,8 @@
             </ul>
 
             <div class="col-md-3 text-end">
-                <button type="button" class="btn btn-sm btn-outline-light me-2">Entrar</button>
-                <button type="button" class="btn btn-sm btn-warning">Cadastrar</button>
+                <a type="button" class="btn btn-sm btn-outline-light me-2" asp-area="" asp-controller="Usuarios" asp-action="Login">Entrar</a>
+                <a type="button" class="btn btn-sm btn-warning" asp-area="" asp-controller="Usuarios" asp-action="Cadastro">Cadastrar</a>
             </div>
         </header>
         <main role="main" class="pb-3">
