@@ -15,10 +15,13 @@
 <body>
 
     <div id="retanguloFundo" class="shadow"></div>
+
     <div class="conteudoPagina container">
+
+
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
             <div class="col-md-3 mb-2 mb-md-0">
-                <a href="/" class="titulo d-inline-flex link-body-emphasis text-decoration-none text-light fw-bold h4">
+                <a href="/" class="titulo d-inline-flex link-body-emphasis text-decoration-none text-light fw-bold h4 m-0">
                     Midas
                 </a>
             </div>
@@ -40,37 +43,41 @@
                 <a type="button" class="btn btn-sm btn-warning" asp-area="" asp-controller="Usuarios" asp-action="Cadastro">Cadastrar</a>
             </div>
         </header>
+
+
         <main role="main" class="pb-3">
             @RenderBody()
 
         </main>
 
 
-        <footer class="border-top footer d-flex flex-wrap justify-content-between align-items-center py-3 px-2 my-4 border-top border-secondary">
+        <footer class="border-top d-flex flex-wrap justify-content-between align-items-center py-3 px-2 my-4 border-top border-secondary">
             <div class="col-12 col-lg-4 d-flex align-items-center">
                 <a href="/"
-                    class="titulo d-inline-flex link-body-emphasis text-decoration-none text-body-secondary fw-bold h5 m-0">
+                   class="titulo d-inline-flex link-body-emphasis text-decoration-none text-secondary fw-bold h5 m-0">
                     Midas
                 </a>
-                <span class="mb-3 mb-md-0 text-body-secondary">&ensp;| 2023 Projeto Integrador III - Fatec Taquaritinga</span>
+                <span class="mb-3 mb-md-0  text-secondary">&ensp;| 2023 Projeto Integrador III - Fatec Taquaritinga</span>
             </div>
-            <div class="col-12 col-lg-4 d-flex align-items-center justify-content-end gap-2">
+            <div class="col-12 col-lg-4 d-flex align-items-center justify-content-end gap-2  text-secondary">
                 <a href="https://br.linkedin.com/"
-                    class="mb-3 mb-md-0 text-body-secondary text-decoration-none">
+                   class="mb-3 mb-md-0 text-body-secondary text-decoration-none text-secondary">
                     João Bernardelli
                 </a>
                 |
                 <a href="https://br.linkedin.com/"
-                    class="mb-3 mb-md-0 text-body-secondary text-decoration-none">
+                   class="mb-3 mb-md-0 text-body-secondary text-decoration-none text-secondary">
                     Samuel Rosales
                 </a>
                 |
                 <a href="https://br.linkedin.com/"
-                    class="mb-3 mb-md-0 text-body-secondary text-decoration-none">
+                   class="mb-3 mb-md-0 text-body-secondary text-decoration-none text-secondary">
                     Thais Oliveira
-                </a>               
+                </a>
             </div>
         </footer>
+
+
     </div>
 
 
