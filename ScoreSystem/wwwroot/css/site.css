@@ -47,3 +47,16 @@ body {
 table {
     font-size: 13px
 }
+
+/* TELOA DE CADASTRO */
+.BtnCancelar {
+    min-width: 90px;
+}
+
+button.BtnSalvar, a.BtnSalvar {
+    min-width: 90px;
+}
+
+.DescTextarea {
+    height: 200px;
+}
