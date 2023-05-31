@@ -17,6 +17,7 @@ html {
 
 body {
     width: 100%;
+    height: 100%;
     margin-bottom: 60px;
     margin: 0;
     padding: 0;
@@ -48,7 +49,7 @@ table {
     font-size: 13px
 }
 
-/* TELOA DE CADASTRO */
+/* TELA DE CADASTRO */
 .BtnCancelar {
     min-width: 90px;
 }
@@ -59,4 +60,20 @@ button.BtnSalvar, a.BtnSalvar {
 
 .DescTextarea {
     height: 200px;
+}
+
+
+/* TELA DE LOGIN */
+body.FundoLogin {
+    background-color: #14213D;
+}
+
+div#cardLogin {
+    min-width: 400px;
+    min-height: 400px;
+}
+
+div#cardCadastro {
+    min-width: 400px;
+    min-height: 400px;
 }

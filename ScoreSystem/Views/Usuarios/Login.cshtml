@@ -1,5 +1,58 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ScoreSystem</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ScoreSystem.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+</head>
+<body class="FundoLogin">
+
+    <div class="position-absolute top-50 start-50 translate-middle ">
+        <div id="cardLogin" class="card shadow-lg">
+            <div class="card-body">
+                <h3>Entrar</h3>
+                <form action="" class="d-flex flex-column gap-3" method="post">
+                    <section>
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" id="email" class="form-control shadow-sm"
+                               placeholder="nome@gmail.com" autocomplete="off">
+                    </section>
+                    <section>
+                        <label for="password">Senha</label>
+                        <input type="password" name="password" id="password" class="form-control shadow-sm"
+                               placeholder="**********" autocomplete="off">
+                    </section>
+                    <a href="#" class="link-secondary text-decoration-none">Esqueceu a senha?</a>
+                    <input class="btn btn-success shadow" type="submit" value="Entrar">
+                </form>
+                <div id="register-container" class="mt-2">
+                    <i>Ainda não tem conta?</i>
+                    <a href="/Usuarios/Cadastro" class="link-danger text-decoration-none">Registrar</a>
+                </div>
+            </div>
+        </div>
+        <div class="card bg-warning bg-gradient text-dark mt-2">
+            <div class="card-body">
+                <b class="titulo">Midas </b>
+                <i> - 2023</i>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
