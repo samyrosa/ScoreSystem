@@ -13,5 +13,15 @@ namespace ScoreSystem.Controllers
         {
             return View();
         }
+
+        public IActionResult Lista()
+        {
+            return View();
+        }
+
+        public IActionResult CadastroAdministrador()
+        {
+            return View();
+        }
     }
 }

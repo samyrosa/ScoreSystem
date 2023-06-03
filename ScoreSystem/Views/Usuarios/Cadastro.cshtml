@@ -16,35 +16,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 </head>
 <body class="FundoLogin">
+
     <div class="position-absolute top-50 start-50 translate-middle ">
-        <div id="cardCadastro" class="card shadow-lg">
+        <div id="cardLogin" class="card shadow-lg">
             <div class="card-body">
                 <h3>Cadastrar</h3>
-                <div class="row g-2">
-                    <div class="col-12 col-lg-6">
-                        <label for="titulo" class="form-label m-1">Nome</label>
-                        <input type="text" name="titulo" class="form-control form-control-sm" id="titulo">
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <label for="titulo" class="form-label m-1">Sobrenome</label>
-                        <input type="text" name="titulo" class="form-control form-control-sm" id="titulo">
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <label for="titulo" class="form-label m-1">Email</label>
-                        <input type="text" name="titulo" class="form-control form-control-sm" id="titulo">
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <label for="titulo" class="form-label m-1">Telefone</label>
-                        <input type="text" name="titulo" class="form-control form-control-sm" id="titulo">
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <label for="titulo" class="form-label m-1">Senha</label>
-                        <input type="text" name="titulo" class="form-control form-control-sm" id="titulo">
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <label for="titulo" class="form-label m-1">Confirma Senha</label>
-                        <input type="text" name="titulo" class="form-control form-control-sm" id="titulo">
-                    </div>
+                <form action="" class="d-flex flex-column gap-3" method="post">
+                    <section>
+                        <label for="email">Nome</label>
+                        <input type="text" name="email" id="email" class="form-control shadow-sm"
+                               autocomplete="off">
+                    </section>
+                    <section>
+                        <label for="email">CPF</label>
+                        <input type="text" name="email" id="email" class="form-control shadow-sm"
+                               autocomplete="off">
+                    </section>
+                    <section>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control shadow-sm"
+                               autocomplete="off">
+                    </section>
+                    <section>
+                        <label for="password">Senha</label>
+                        <input type="password" name="password" id="password" class="form-control shadow-sm"
+                               autocomplete="off">
+                    </section>
+                    <section>
+                        <label for="password">Confirmar Senha</label>
+                        <input type="password" name="password" id="password" class="form-control shadow-sm"
+                               autocomplete="off">
+                    </section>
+
+                    <input class="btn btn-success shadow" type="submit" value="Cadastrar">
+                </form>
+                <div id="register-container" class="mt-2">
+                    <i>Já possue conta?</i>
+                    <a href="/Usuarios/Login" class="link-primary text-decoration-none">Entrar</a>
                 </div>
             </div>
         </div>
@@ -55,7 +63,6 @@
             </div>
         </div>
     </div>
-
 
 
 
