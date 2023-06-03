@@ -12,7 +12,7 @@ html {
     position: relative;
     min-height: 100%;
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 body {
@@ -63,7 +63,7 @@ button.BtnSalvar, a.BtnSalvar {
 }
 
 
-/* TELA DE LOGIN */
+/* TELA DE LOGIN  E CADASTRO*/
 body.FundoLogin {
     background-color: #14213D;
 }
@@ -76,4 +76,13 @@ div#cardLogin {
 div#cardCadastro {
     min-width: 400px;
     min-height: 400px;
+}
+
+/*TELE DE INFORMAÇOES*/
+.listInfo {
+    padding-left: 5px;
+}
+
+ul.listInfo > li::marker {
+    content: none;
 }
