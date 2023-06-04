@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ScoreSystem.Models.UsuariosViewModel
+﻿
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -26,30 +28,30 @@
                     <a href="/Usuarios/Login" class="link-primary text-decoration-none">Entrar</a>
                 </div>
                 <hr />
-                <form action="" class="d-flex flex-column gap-3" method="post">
+                <form action="/Usuarios/SalvarDados" class="d-flex flex-column gap-3" method="post" enctype="multipart/form-data">
                     <section>
-                        <label for="email">Nome</label>
-                        <input type="text" name="email" id="email" class="form-control shadow-sm"
+                        <label for="Nome">Nome</label>
+                        <input type="text" name="NOME" id="nome" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
-                        <label for="email">CPF</label>
-                        <input type="text" name="email" id="email" class="form-control shadow-sm"
+                        <label for="cpf">CPF</label>
+                        <input type="text" name="CPF" id="cpf" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" class="form-control shadow-sm"
+                        <input type="email" name="EMAIL" id="email" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
                         <label for="password">Senha</label>
-                        <input type="password" name="password" id="password" class="form-control shadow-sm"
+                        <input type="password" name="SENHA" id="password" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
                         <label for="password">Confirmar Senha</label>
-                        <input type="password" name="password" id="password" class="form-control shadow-sm"
+                        <input type="password" name="SENHA" id="password2" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
 
