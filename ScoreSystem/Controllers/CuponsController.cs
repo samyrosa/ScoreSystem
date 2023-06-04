@@ -14,6 +14,11 @@ namespace ScoreSystem.Controllers
             return View();
         }
 
+        public IActionResult Visualizar()
+        {
+            return View();
+        }
+
         public IActionResult SalvarDados()
         {
             return RedirectToAction("Lista");
