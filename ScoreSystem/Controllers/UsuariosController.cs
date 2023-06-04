@@ -38,7 +38,7 @@ namespace ScoreSystem.Controllers
         public IActionResult SalvarDados(Usuarios dados)
         {
 
-            dados.DT_HR_CADASTRO = DateTime.Now; //Para a hora ser salva no banco corretamente 
+            //dados.DT_HR_CADASTRO = DateTime.Now; //Para a hora ser salva no banco corretamente 
 
             db.USUARIO.Add(dados);
             db.SaveChanges();
