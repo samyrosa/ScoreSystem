@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using ScoreSystem;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<Contexto>(
+    option => option.UseSqlServer("Server=DESKTOP-THAIZIP; Database=DB_SCORE; Trusted_Connection=True; Encrypt=True; TrustServerCertificate=true;")
+);
 
 var app = builder.Build();
 
