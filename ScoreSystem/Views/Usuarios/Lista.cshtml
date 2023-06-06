@@ -1,7 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Manutenção de Recompensas";
-}
-<h3 class="ms-2 text-light"><i class="bi bi-trophy-fill"></i> Manutenção de Reconpensas</h3>
+﻿<h3 class="ms-2 text-light"><i class="bi bi-person-fill"></i> Manutenção de Usuarios</h3>
 <div class="card shadow">
     <div class="card-body">
         <div class="row">
@@ -9,8 +6,8 @@
                 <div class="row g-1">
                     <div class="col-3 col-lg-6">
 
-                        <a href="/Recompensas/Cadastro" class="btn btn-sm btn-outline-success shadow-sm">
-                            <i class="bi bi-clipboard-plus"></i>  Cadastrar
+                        <a href="/Usuarios/CadastroAdministrador" class="btn btn-sm btn-outline-success shadow-sm">
+                            <i class="bi bi-plus-lg"></i>  Cadastrar
                         </a>
 
                     </div>
@@ -18,7 +15,7 @@
                         <select class="form-select form-select-sm shadow-sm" aria-label=".form-select-sm example">
                             <option selected>Selecione...</option>
                             <option value="1">Título</option>
-                            <option value="2">Valor</option>
+                            <option value="2">Pontos</option>
                             <option value="3">Descrição</option>
                         </select>
                     </div>
@@ -38,18 +35,18 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Titulo</th>
-                            <th scope="col">Valor</th>
-                            <th scope="col">Descrição</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Tipo</th>
                             <th scope="col" style="max-width: 10px;"></th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
                         <tr>
-                            <th scope="row">3650</th>
+                            <td scope="row">3650</td>
                             <td>Lorem ipsum dolor sit amet</td>
-                            <td>140 Pts</td>
-                            <td class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                            <td class="">458.485.744-60</td>
+                            <td class="">Administrador</td>
                             <td class="text-end">
                                 <div class="dropdown-center me-3">
                                     <a class="link-dark" type="button" data-bs-toggle="dropdown"
@@ -58,13 +55,13 @@
                                     </a>
                                     <ul class="dropdown-menu mx-0 shadow w-220px" data-bs-theme="light">
                                         <li>
-                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="/Recompensas/Visualizar">
+                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
                                                 <i class="bi bi-eye-fill"></i>
                                                 Visualizar
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="/Recompensas/Editar">
+                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
                                                 <i class="bi bi-pencil-square"></i>
                                                 Editar
                                             </a>
@@ -75,7 +72,47 @@
                                         </li>
                                         <li>
                                             <a class="dropdown-item link-danger dropdown-item-danger d-flex gap-2 align-items-center"
-                                               href="/Recompensas/Excluir">
+                                               href="#">
+                                                <i class="bi bi-trash"></i>
+                                                Deletar
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td scope="row">3650</td>
+                            <td>Lorem ipsum dolor sit amet</td>
+                            <td class="">458.485.744-60</td>
+                            <td class="">Cliente</td>
+                            <td class="text-end">
+                                <div class="dropdown-center me-3">
+                                    <a class="link-dark" type="button" data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                        <i class="bi bi-three-dots"></i>
+                                    </a>
+                                    <ul class="dropdown-menu mx-0 shadow w-220px" data-bs-theme="light">
+                                        <li>
+                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                                                <i class="bi bi-eye-fill"></i>
+                                                Visualizar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                                                <i class="bi bi-pencil-square"></i>
+                                                Editar
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item link-danger dropdown-item-danger d-flex gap-2 align-items-center"
+                                               href="#">
                                                 <i class="bi bi-trash"></i>
                                                 Deletar
                                             </a>

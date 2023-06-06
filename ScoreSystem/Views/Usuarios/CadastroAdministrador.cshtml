@@ -1,8 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Cadastro de Cupons";
-}
-
-<h3 class="ms-2 text-light"><i class="bi bi-bookmark-fill"></i> Cadastro de Cupons</h3>
+﻿<h3 class="ms-2 text-light"><i class="bi bi-person-fill"></i> Cadastro de Usuario</h3>
 
 <form action="/Cupons/SalvarDados" method="post">
 
@@ -12,35 +8,38 @@
             <div class="row g-2">
 
                 <div class="col-12 col-lg-7">
-                    <label for="titulo" class="form-label m-1">Titulo do Cupom</label>
+                    <label for="titulo" class="form-label m-1">Nome</label>
+                    <input type="text" name="titulo" class="form-control form-control-sm" id="titulo">
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <label for="titulo" class="form-label m-1">CPF</label>
                     <input type="text" name="titulo" class="form-control form-control-sm" id="titulo">
                 </div>
 
                 <div class="col-12 col-lg-2">
-                    <label for="Tipo" class="form-label m-1">Tipo</label>
+                    <label for="titulo" class="form-label m-1">Tipo</label>
                     <select class="form-select form-select-sm">
                         <option selected>Selecione...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="1">Administrador</option>
+                        <option value="2">Cliente</option>
                     </select>
                 </div>
 
-                <div class="col-6 col-lg-1">
-                    <label for="Ponto" class="form-label m-1">Pontos</label>
-                    <input type="text" name="Ponto" class="form-control form-control-sm" id="Ponto">
+                <div class="col-12 col-lg-6">
+                    <label for="titulo" class="form-label m-1">Email</label>
+                    <input type="email" name="titulo" class="form-control form-control-sm" id="titulo">
+                </div>
+                <div class="col-6 col-lg-3">
+                    <label for="titulo" class="form-label m-1">Senha</label>
+                    <input type="password" name="titulo" class="form-control form-control-sm" id="titulo">
+                </div>
+                <div class="col-6 col-lg-3">
+                    <label for="titulo" class="form-label m-1">Confirme Senha</label>
+                    <input type="password" name="titulo" class="form-control form-control-sm" id="titulo">
                 </div>
 
-                <div class="col-6 col-lg-2">
-                    <label for="DtVencimento" class="form-label m-1">Vencimento</label>
-                    <input type="datetime-local" name="DtVencimento" class="form-control form-control-sm" id="DtVencimento">
-                </div>
-
-                <div class="col-12">
-                    <label for="Descricao" class="form-label m-1">Descrição do Cupom</label>
-                    <textarea class="form-control DescTextarea" id="Descricao" rows="3"></textarea>
-                </div>
-
+                
 
             </div>
 
