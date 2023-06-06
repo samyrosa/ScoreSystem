@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<Contexto>(
-    option => option.UseSqlServer("Server=DESKTOP-THAIZIP; Database=DB_SCORE; Trusted_Connection=True; Encrypt=True; TrustServerCertificate=true;")
+    option => option.UseSqlServer("Server=localhost; Database=DB_SCORE; Trusted_Connection=True; Encrypt=True; TrustServerCertificate=true;")
 );
 
 var app = builder.Build();
