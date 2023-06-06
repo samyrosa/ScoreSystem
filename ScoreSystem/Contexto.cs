@@ -11,6 +11,7 @@ namespace ScoreSystem
         }
 
         public DbSet<Usuarios> USUARIO { get; set; }
+        public DbSet<Recompensas> RECOMPENSA{ get; set; }
 
 
 

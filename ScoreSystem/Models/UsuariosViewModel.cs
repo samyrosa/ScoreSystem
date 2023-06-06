@@ -9,7 +9,5 @@
         public string Senha { get; set; }
         public string Tipo { get; set; }
         public bool Ativo { get; set; }
-
-        //public DateTime DataHoraCadastro { get; set; }
     }
 }

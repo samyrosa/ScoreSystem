@@ -13,32 +13,21 @@
 
                 <div class="col-12 col-lg-7">
                     <label for="titulo" class="form-label m-1">Titulo do Cupom</label>
-                    <input type="text" name="titulo" class="form-control form-control-sm" id="titulo">
+                    <input type="text" name="TITULO" class="form-control form-control-sm" id="titulo">
                 </div>
-
-                <div class="col-12 col-lg-2">
-                    <label for="Tipo" class="form-label m-1">Tipo</label>
-                    <select class="form-select form-select-sm">
-                        <option selected>Selecione...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-
                 <div class="col-6 col-lg-1">
                     <label for="Ponto" class="form-label m-1">Pontos</label>
-                    <input type="text" name="Ponto" class="form-control form-control-sm" id="Ponto">
+                    <input type="text" name="PONTO" class="form-control form-control-sm" id="Ponto">
                 </div>
 
                 <div class="col-6 col-lg-2">
                     <label for="DtVencimento" class="form-label m-1">Vencimento</label>
-                    <input type="datetime-local" name="DtVencimento" class="form-control form-control-sm" id="DtVencimento">
+                    <input type="datetime-local" name="DATA_VENCIMENTO" class="form-control form-control-sm" id="DtVencimento">
                 </div>
 
                 <div class="col-12">
                     <label for="Descricao" class="form-label m-1">Descrição do Cupom</label>
-                    <textarea class="form-control DescTextarea" id="Descricao" rows="3"></textarea>
+                    <textarea class="form-control DescTextarea" name="DESCRICAO" id="Descricao" rows="3"></textarea>
                 </div>
 
 
@@ -53,7 +42,7 @@
                 <div class="col-6">
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <input class="form-check-input" name="ATIVO" type="checkbox" value="" id="flexCheckChecked" checked>
                         <label class="form-check-label" for="flexCheckChecked">
                             Ativado
                         </label>

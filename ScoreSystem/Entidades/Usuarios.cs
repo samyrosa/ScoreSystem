@@ -15,8 +15,7 @@ namespace ScoreSystem.Entidades
         public string TIPO { get; set; }
 
         public bool ATIVO { get; set; }
-        //public DateTime DT_HR_CADASTRO { get; set; }
-
+    
     }
 
 }

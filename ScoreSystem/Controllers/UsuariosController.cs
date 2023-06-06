@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization; 
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ScoreSystem.Entidades;
 using ScoreSystem.Models;
@@ -6,6 +7,7 @@ using ScoreSystem.Models;
 
 namespace ScoreSystem.Controllers
 {
+    //[Authorize(AuthenticationSchemes = "CookieAuthentication")]
     public class UsuariosController : Controller
     {
         private Contexto db;
@@ -19,6 +21,24 @@ namespace ScoreSystem.Controllers
             return View();
         }
 
+        [HttpPost]
+
+        public IActionResult Login(string Cpf, string Senha)
+        {
+            var usuario = db.USUARIO.FirstOrDefault(u => u.CPF == Cpf && u.SENHA == Senha);
+
+            if(usuario != null)
+            {
+               return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "CPF e/ou senha incorreta");
+                return View();
+
+            }
+
+        }
         public IActionResult Cadastro()
         {
             UsuariosViewModel model = new UsuariosViewModel();
@@ -35,10 +55,20 @@ namespace ScoreSystem.Controllers
             return View();
         }
 
+        [HttpPost]
+
         public IActionResult SalvarDados(Usuarios dados)
         {
-
-            //dados.DT_HR_CADASTRO = DateTime.Now; //Para a hora ser salva no banco corretamente 
+            //Verificação dos atributos de Usuario
+            if (dados.ATIVO == false)
+            {
+                dados.ATIVO = true;
+            }
+            if (dados.TIPO == null)
+            {
+                string TipoPadrão = "C";
+                dados.TIPO = TipoPadrão;
+            }
 
             db.USUARIO.Add(dados);
             db.SaveChanges();
