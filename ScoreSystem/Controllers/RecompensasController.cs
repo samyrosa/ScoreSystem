@@ -22,7 +22,7 @@ namespace ScoreSystem.Controllers
         public IActionResult Cadastro()
         {
             RecompensasViewModel model = new RecompensasViewModel();
-            return View();
+            return View(model);
         }
 
         public IActionResult SalvarDados(Recompensas dados )

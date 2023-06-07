@@ -1,12 +1,12 @@
 ﻿namespace ScoreSystem.Models
 {
-    public class RecompensasViewModel
+    public class CuponsViewModel
     {
         public int Codigo { get; set; }
         public string Titulo { get; set; }
         public string Descricao { get; set; }
         public int Ponto { get; set; }
-        public DateTime DataVencimento { get; set; }
-
+        public int DtVencimento{ get; set; }
+        public bool Ativo { get; set; }
     }
 }
