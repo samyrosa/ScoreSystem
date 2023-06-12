@@ -2,7 +2,7 @@
     ViewData["Title"] = "Manutenção de Cupons";
 }
 
-
+@model List<ScoreSystem.Entidades.Cupom>
 <h3 class="ms-2 text-light"><i class="bi bi-bookmark-fill"></i> Manutenção de Cupons</h3>
 <div class="card shadow">
     <div class="card-body">
@@ -47,46 +47,49 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                        <tr>
-                            <td scope="row">3650</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>140 Pts</td>
-                            <td class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                            <td class="text-end">
-                                <div class="dropdown-center me-3">
-                                    <a class="link-dark" type="button" data-bs-toggle="dropdown"
-                                       aria-expanded="false">
-                                        <i class="bi bi-three-dots"></i>
-                                    </a>
-                                    <ul class="dropdown-menu mx-0 shadow w-220px" data-bs-theme="light">
-                                        <li>
-                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="/Cupons/Visualizar">
-                                                <i class="bi bi-eye-fill"></i>
-                                                Visualizar
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="/Cupons/Editar">
-                                                <i class="bi bi-pencil-square"></i>
-                                                Editar
-                                            </a>
-                                        </li>
+                        @foreach (var cupom in Model)
+                        {
+                            <tr>
+                                <td scope="row">@cupom.CODIGO</td>
+                                <td>@cupom.TITULO</td>
+                                <td>@cupom.PONTO</td>
+                                <td class="">@cupom.DESCRICAO</td>
+                                <td class="text-end">
+                                    <div class="dropdown-center me-3">
+                                        <a class="link-dark" type="button" data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+                                            <i class="bi bi-three-dots"></i>
+                                        </a>
+                                        <ul class="dropdown-menu mx-0 shadow w-220px" data-bs-theme="light">
+                                            <li>
+                                                <a class="dropdown-item d-flex gap-2 align-items-center" href="/Cupons/Visualizar/@cupom.CODIGO">
+                                                    <i class="bi bi-eye-fill"></i>
+                                                    Visualizar
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item d-flex gap-2 align-items-center" href="/Cupons/Editar/@cupom.CODIGO">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                    Editar
+                                                </a>
+                                            </li>
 
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item link-danger dropdown-item-danger d-flex gap-2 align-items-center"
-                                               href="/Cupons/Excluir">
-                                                <i class="bi bi-trash"></i>
-                                                Deletar
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item link-danger dropdown-item-danger d-flex gap-2 align-items-center"
+                                                   href="/Cupons/Excluir/@cupom.CODIGO">
+                                                    <i class="bi bi-trash"></i>
+                                                    Deletar
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
 
-                        </tr>
+                            </tr>
+                        }
 
 
                     </tbody>

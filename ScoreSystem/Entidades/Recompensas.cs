@@ -9,5 +9,7 @@ namespace ScoreSystem.Entidades
         public string DESCRICAO { get; set; }
         public int PONTO { get; set; }
         public DateTime DT_VENCIMENTO { get; set; }
+        public bool ATIVO { get; set; }
+
     }
 }

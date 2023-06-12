@@ -16,8 +16,7 @@ namespace ScoreSystem.Controllers
 
         public IActionResult Lista()
         {
-            List<Recompensas> model = new List<Recompensas>();
-            return View(model);
+            return View(db.RECOMPENSA.ToList());
         }
         public IActionResult Cadastro()
         {

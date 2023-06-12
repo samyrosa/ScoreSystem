@@ -1,6 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Manutenção de Recompensas";
 }
+
+@model List<ScoreSystem.Entidades.Recompensas>
+
 <h3 class="ms-2 text-light"><i class="bi bi-trophy-fill"></i> Manutenção de Reconpensas</h3>
 <div class="card shadow">
     <div class="card-body">
@@ -45,48 +48,50 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                        <tr>
-                            <th scope="row">3650</th>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>140 Pts</td>
-                            <td class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                            <td class="text-end">
-                                <div class="dropdown-center me-3">
-                                    <a class="link-dark" type="button" data-bs-toggle="dropdown"
-                                       aria-expanded="false">
-                                        <i class="bi bi-three-dots"></i>
-                                    </a>
-                                    <ul class="dropdown-menu mx-0 shadow w-220px" data-bs-theme="light">
-                                        <li>
-                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="/Recompensas/Visualizar">
-                                                <i class="bi bi-eye-fill"></i>
-                                                Visualizar
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="/Recompensas/Editar">
-                                                <i class="bi bi-pencil-square"></i>
-                                                Editar
-                                            </a>
-                                        </li>
+                        @foreach(var recompensa in Model)
+                        {
+                            <tr>
+                                <th scope="row">@recompensa.CODIGO</th>
+                                <td>@recompensa.TITULO</td>
+                                <td>@recompensa.PONTO</td>
+                                <td class="">@recompensa.DESCRICAO</td>
+                                <td class="text-end">
+                                    <div class="dropdown-center me-3">
+                                        <a class="link-dark" type="button" data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+                                            <i class="bi bi-three-dots"></i>
+                                        </a>
+                                        <ul class="dropdown-menu mx-0 shadow w-220px" data-bs-theme="light">
+                                            <li>
+                                                <a class="dropdown-item d-flex gap-2 align-items-center" href="/Recompensas/Visualizar/@recompensa.CODIGO">
+                                                    <i class="bi bi-eye-fill"></i>
+                                                    Visualizar
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item d-flex gap-2 align-items-center" href="/Recompensas/Editar/@recompensa.CODIGO">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                    Editar
+                                                </a>
+                                            </li>
 
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item link-danger dropdown-item-danger d-flex gap-2 align-items-center"
-                                               href="/Recompensas/Excluir">
-                                                <i class="bi bi-trash"></i>
-                                                Deletar
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item link-danger dropdown-item-danger d-flex gap-2 align-items-center"
+                                                   href="/Recompensas/Excluir/@recompensa.CODIGO">
+                                                    <i class="bi bi-trash"></i>
+                                                    Deletar
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
 
-                        </tr>
-
-
+                            </tr>
+                        }
+               
                     </tbody>
                 </table>
             </div>
