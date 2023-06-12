@@ -52,7 +52,8 @@ namespace ScoreSystem.Controllers
 
         public IActionResult CadastroAdministrador()
         {
-            return View();
+            UsuariosViewModel model = new UsuariosViewModel();
+            return View(model);
         }
 
         [HttpPost]
@@ -66,8 +67,8 @@ namespace ScoreSystem.Controllers
             }
             if (dados.TIPO == null)
             {
-                string TipoPadrão = "C";
-                dados.TIPO = TipoPadrão;
+                string TipoPadrao = "C";
+                dados.TIPO = TipoPadrao;
             }
 
             db.USUARIO.Add(dados);

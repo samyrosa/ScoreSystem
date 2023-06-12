@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using ScoreSystem.Entidades;
 using ScoreSystem.Models;
 using System.Diagnostics;
 
@@ -6,6 +9,9 @@ namespace ScoreSystem.Controllers
 {
     public class HomeController : Controller
     {
+        private Contexto db;
+
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -13,8 +19,10 @@ namespace ScoreSystem.Controllers
             _logger = logger;
         }
 
+
         public IActionResult Index()
         {
+
             return View();
         }
 
