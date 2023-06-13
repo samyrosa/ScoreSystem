@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Visualizar Cupom";
 }
-@model ScoreSystem.Entidades.Recompensas
+@model ScoreSystem.Entidades.Cupom
 
 <h3 class="ms-2 text-light">Titulo do Cupom</h3>
 <div class="row g-2">
@@ -10,7 +10,7 @@
             <div class="card-body">
                 <ul class="listInfo">
                     <li>
-                        <span class="badge bg-success rounded-3">@Model.PONTO pts</span>
+                        <span class="badge bg-success rounded-3">@Model.CODIGO</span>
                     </li>
                     <li><b>Validade:</b> @Model.DT_VENCIMENTO</li>
                     <li>

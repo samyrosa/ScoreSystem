@@ -23,9 +23,9 @@ namespace ScoreSystem.Controllers
             return View(model);
         }
 
-        public IActionResult Visualizar(int id)
+        public IActionResult Visualizar(int codigo)
         {
-            var cupom = db.CUPOM.Find(id);
+            var cupom = db.CUPOM.Find(codigo);
 
             if (cupom != null)
             {
@@ -39,9 +39,9 @@ namespace ScoreSystem.Controllers
 
         }
 
-        public ActionResult Excluir(int id)
+        public ActionResult Excluir(int codigo)
         {
-            Cupom item = db.CUPOM.Find(id);
+            Cupom item = db.CUPOM.Find(codigo);
             if (item != null)
             {
                 db.CUPOM.Remove(item);
