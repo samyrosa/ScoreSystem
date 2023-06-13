@@ -24,6 +24,33 @@ namespace ScoreSystem.Controllers
             return View(model);
         }
 
+        public IActionResult Visualizar(int id)
+        {
+            var recompensa = db.RECOMPENSA.Find(id);
+
+            if (recompensa != null)
+            {
+                return View(recompensa);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
+        public ActionResult Excluir(int id)
+        {
+            Recompensas item = db.RECOMPENSA.Find(id);
+            if (item != null)
+            {
+                db.RECOMPENSA.Remove(item);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Lista");
+        }
+
+        
         public IActionResult SalvarDados(Recompensas dados )
         {
             db.RECOMPENSA.Add(dados);
