@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 
@@ -26,11 +27,12 @@
             <div class="card-body">
                 <h3>Entrar</h3>
                 <hr />
-                <form action="" class="d-flex flex-column gap-3" method="post">
+                <form action="/Usuarios/Logar" class="d-flex flex-column gap-3" method="post">
                     <section>
                         <label for="Cpf">CPF</label>
                         <input type="text" name="CPF" id="Cpf" class="form-control shadow-sm"
                                autocomplete="off">
+                        <input type="hidden" name="ReturnUrl" value="@ViewContext.RouteData.Values["ReturnUrl"]" />
                     </section>
                     <section>
                         <label for="password">Senha</label>

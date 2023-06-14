@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ScoreSystem.Entidades;
 using ScoreSystem.Models;
 
 namespace ScoreSystem.Controllers
 {
+    [Authorize(Roles ="Administrador")]
     public class CuponsController : Controller
     {
         private Contexto db;
@@ -58,22 +60,37 @@ namespace ScoreSystem.Controllers
             Cupom item = db.CUPOM.Find(id);
             if (item != null)
             {
-                db.CUPOM.Update(item);
-                db.SaveChanges();
-                return View();
+                return View(item);
             }
             else
             {
                 return RedirectToAction("Lista");
             }
 
-
         }
 
         public IActionResult SalvarDados(Cupom dados)
         {
-            db.CUPOM.Add(dados);
-            db.SaveChanges();
+            
+           
+
+            if(dados.CODIGO > 0)
+            {
+                db.CUPOM.Update(dados);
+                db.SaveChanges();
+                TempData["Sucesso"] = "Cupom editado com sucesso!";
+
+            }
+            else
+            {
+                if (dados.DT_VENCIMENTO < DateTime.Now)
+                {
+                    dados.DT_VENCIMENTO = DateTime.Now;
+                }
+                db.CUPOM.Add(dados);
+                db.SaveChanges();
+            }
+           
             return RedirectToAction("Lista");
         }
 

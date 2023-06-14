@@ -28,40 +28,45 @@
                     <a href="/Usuarios/Login" class="link-primary text-decoration-none">Entrar</a>
                 </div>
                 <hr />
-                <form action="/Usuarios/SalvarDados" class="d-flex flex-column gap-3" method="post" enctype="multipart/form-data">
+                <form action="/Usuarios/SalvarDados" class="d-flex flex-column gap-3" method="post" onsubmit="return Validacao()" enctype="multipart/form-data">
                     <section>
-                        <label for="Nome">Nome
+                        <label for="Nome">
+                            Nome
                             <span class="text-danger">*</span>
                         </label>
-                        <input type="text" name="NOME" id="nome" class="form-control shadow-sm"
+                        <input type="text" name="NOME" id="Nome" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
-                        <label for="cpf">CPF
+                        <label for="cpf">
+                            CPF
                             <span class="text-danger">*</span>
                         </label>
                         <input type="text" name="CPF" id="cpf" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
-                        <label for="email">Email4
+                        <label for="email">
+                            Email4
                             <span class="text-danger">*</span>
                         </label>
-                        <input type="email" name="EMAIL" id="email" class="form-control shadow-sm"
+                        <input type="email" name="EMAIL" id="Email" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
-                        <label for="password">Senha
+                        <label for="password">
+                            Senha
                             <span class="text-danger">*</span>
                         </label>
-                        <input type="password" name="SENHA" id="password" class="form-control shadow-sm"
+                        <input type="password" name="SENHA" id="Senha" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
-                        <label for="password">Confirmar Senha
+                        <label for="password">
+                            Confirmar Senha
                             <span class="text-danger">*</span>
                         </label>
-                        <input type="password" name="SENHA" id="password2" class="form-control shadow-sm"
+                        <input type="password" name="SENHA" id="Senha2" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
 
@@ -89,14 +94,38 @@
         $('input[name="CPF"]').mask('000.000.000-00');
     </script>
 
-    @if (TempData["Alert"] != null)
-    {
+    @section Scripts{
+        <script src="~/lib/sweet-alert/sweetalert.min.js"></script>
+        <script>
+            function Validacao() {
+                if ($("#Nome").val() == "") {
+                    swal("Erro", "O campo Nome não pode está vazio!", "error");
+                    return false;
+                } else if ($("#cpf").val() == "") {
+                    swal("Erro", "O campo CPF não pode está vazio!", "error");
+                    return false;
+                }
+                else if ($("#Email").val() == "") {
+                    swal("Erro", "O campo Email não pode está vazio!", "error");
+                    return false;
 
-        <script type="text/javascript">
-            swal("Atenção", "@TempData["Alert"]", "warning");
+                } else if ($("#Senha").val() == "") {
+                    swal("Erro", "O Snha não pode está vazio!", "error");
+                    return false;
+                } else if ($("#Senha2").val() == "") {
+                    swal("Erro", "O Confirmar Senhanão pode está vazio!", "error");
+                    return false;
+                }
+                 else {
+                    swal("Sucesso", "Recompensa cadastrado com sucesso!", "success");
+                    return true
+                }
+
+
+
+            }
         </script>
-
     }
-    
+
 </body>
 </html>

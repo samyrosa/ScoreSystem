@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using ScoreSystem;
 
@@ -6,6 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt => {
+    opt.LoginPath = "/Usuarios/Login";
+
+    opt.AccessDeniedPath = "/Home/AcessoNegado";
+
+    });
 
 builder.Services.AddDbContext<Contexto>(
     option => option.UseSqlServer("Server=localhost; Database=DB_SCORE; Trusted_Connection=True; Encrypt=True; TrustServerCertificate=true;")
@@ -26,7 +34,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",
