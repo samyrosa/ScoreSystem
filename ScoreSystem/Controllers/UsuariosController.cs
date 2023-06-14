@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ScoreSystem.Entidades;
 using ScoreSystem.Models;
-
+using System.Globalization;
 
 namespace ScoreSystem.Controllers
 {
@@ -25,30 +25,39 @@ namespace ScoreSystem.Controllers
 
         public IActionResult Login(string Cpf, string Senha)
         {
+            if((Cpf==null) && (Senha == null))
+            {
+                TempData["Alert"] = "O campo CPF e Senha devem preenchidos!";
+                return View();
+            }
             if (Cpf == null)
             {
-                TempData["Erro"] = "O campo CPF deve ser preenchido";
+                TempData["Alert"] = "O campo CPF deve ser preenchido!";
+                return View();
             }
             if (Senha == null)
             {
-                TempData["Erro"] = "O campo Senha deve ser preenchido";
+                TempData["Alert"] = "O campo Senha deve ser preenchido!";
+                return View();
             }
             var usuario = db.USUARIO.FirstOrDefault(u => u.CPF == Cpf && u.SENHA == Senha);
 
             if(usuario != null)
             {
-               return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
-                TempData["Erro"] = "O campo CPF e/ou Senha são invalido";
+                TempData["Erro"] = "O campo CPF ou Senha invalidos. Usuario nao encontrado!";
                 return View();
 
             }
 
         }
+
         public IActionResult Cadastro()
         {
+            
             UsuariosViewModel model = new UsuariosViewModel();
             return View(model);
         }
