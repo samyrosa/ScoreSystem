@@ -3,31 +3,31 @@
 }
 <h3 class="ms-2 text-light"><i class="bi bi-trophy-fill"></i> Cadastro de Recompensas</h3>
 
-<form action="/Recompensas/SalvarDados" method="post">
+<form action="/Recompensas/SalvarDados" method="post" onsubmit="return Validacao()">
 
     <div class="card shadow-lg">
         <div class="card-body">
-
+          
             <div class="row g-2">
 
                 <div class="col-12 col-lg-7">
                     <label for="titulo" class="form-label m-1">Titulo da Recompensa</label>
-                    <input type="text" name="TITULO" class="form-control form-control-sm" id="titulo">
+                    <input type="text" name="TITULO" id="Titulo"  class="form-control form-control-sm">
                 </div>
 
                 <div class="col-6 col-lg-1">
                     <label for="titulo" class="form-label m-1">Pontos</label>
-                    <input type="text" name="PONTO" class="form-control form-control-sm" id="titulo">
+                    <input type="text" name="PONTO" id="Ponto" class=" form-control form-control-sm" >
                 </div>
 
                 <div class="col-6 col-lg-2">
                     <label for="titulo" class="form-label m-1">Vencimento</label>
-                    <input type="datetime-local" name="DT_VENCIMENTO" class="form-control form-control-sm" id="titulo">
+                    <input type="datetime-local" name="DT_VENCIMENTO" id="DtVencimento" class="form-control form-control-sm" >
                 </div>
 
                 <div class="col-12">
                     <label for="exampleFormControlTextarea1" class="form-label m-1">Descrição da Recompensa</label>
-                    <textarea class="form-control DescTextarea" name="DESCRICAO" id="" rows="3"></textarea>
+                    <textarea class="form-control DescTextarea" name="DESCRICAO" id="Descricao" rows="3"></textarea>
                 </div>
 
 
@@ -64,3 +64,32 @@
     </div>
 
 </form>
+
+@section Scripts{
+    <script src="~/lib/sweet-alert/sweetalert.min.js"></script>
+    <script>
+        function Validacao() {
+            if ($("#Titulo").val() == "") {
+                swal("Erro", "O campo Titulo não pode está vazio!", "error");
+                return false;
+            } else if ($("#Ponto").val() == "") {
+                swal("Erro", "O campo Ponto não pode está vazio!", "error");
+                return false;
+            }
+            else if ($("#DtVencimento").val() == "") {
+                swal("Erro", "O campo Data Vencimento não pode está vazio!", "error");
+                return false;
+
+            } else if ($("#Descricao").val() == "") {
+                swal("Erro", "O campo Descrição não pode está vazio!", "error");
+                return false;
+            } else {
+                swal("Sucesso", "Recompensa cadastrado com sucesso!", "success");
+                return true
+            }
+
+
+
+        }
+    </script>
+                            }

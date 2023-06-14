@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization; 
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization; 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ScoreSystem.Entidades;
 using ScoreSystem.Models;
 using System.Globalization;
+using System.Security.Claims;
 
 namespace ScoreSystem.Controllers
 {
@@ -73,6 +76,59 @@ namespace ScoreSystem.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> Logar(string CPF, string SENHA,string ReturnUrl)
+        {
+            CPF = CPF.Replace("-", "").Replace(".", "");
+            Usuarios usuario = db.USUARIO.Where(a => a.CPF == CPF && a.SENHA == SENHA).FirstOrDefault();
+            if(usuario != null)
+            {
+                List<Claim> claims = new List<Claim>();
+
+                claims.Add(new Claim(ClaimTypes.Name, usuario.NOME));
+                if(usuario.TIPO == "A")
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, "Administrador"));
+                }
+                
+                claims.Add(new Claim(ClaimTypes.Sid, usuario.CODIGO.ToString()));
+
+                var claimsIdentity = new ClaimsIdentity(
+                    claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                var authProperties = new AuthenticationProperties
+                {
+                    IsPersistent = true,
+                };
+
+                await HttpContext.SignInAsync(
+                    CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdentity),
+                    authProperties);
+
+                if (string.IsNullOrEmpty(ReturnUrl))
+                {
+                    ReturnUrl = "/Home/Index";
+                }
+
+                return Redirect(ReturnUrl);
+            }
+            else
+            {
+                ModelState.AddModelError("Erro", "Email ou senha invalidos");
+                return Redirect("/Usuarios/Login");
+            }
+        }
+
+        public async Task<IActionResult> LogOff()
+        {
+
+            await HttpContext.SignOutAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return RedirectToAction("Login");
+        }
+
+        [HttpPost]
 
         public IActionResult SalvarDados(Usuarios dados)
         {
@@ -83,8 +139,8 @@ namespace ScoreSystem.Controllers
             }
             if (dados.TIPO == null)
             {
-                string TipoPadrão = "C";
-                dados.TIPO = TipoPadrão;
+                string TipoPadrao = "C";
+                dados.TIPO = TipoPadrao;
             }
 
             db.USUARIO.Add(dados);

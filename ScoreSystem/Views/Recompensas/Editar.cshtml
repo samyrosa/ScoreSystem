@@ -1,10 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Editar de Cupons";
+    ViewData["Title"] = "Editar de Recompensas";
 }
-@model ScoreSystem.Entidades.Cupom
-<h3 class="ms-2 text-light"><i class="bi bi-bookmark-fill"></i> Editar Cupons</h3>
+@model ScoreSystem.Entidades.Recompensas
+<h3 class="ms-2 text-light"><i class="bi bi-bookmark-fill"></i> Editar Recompensa</h3>
 
-<form action="/Cupons/SalvarDados" method="post">
+<form action="/Recompensas/SalvarDados" method="post">
 
     <div class="card shadow">
         <div class="card-body">
@@ -13,7 +13,7 @@
                 <input type="hidden" name="CODIGO" value="@Model.CODIGO">
 
                 <div class="col-12 col-lg-7">
-                    <label for="titulo" class="form-label m-1">Titulo do Cupom</label>
+                    <label for="titulo" class="form-label m-1">Titulo da Recompensa</label>
                     <input type="text" name="TITULO" value="@Model.TITULO" class="form-control form-control-sm" id="titulo">
                 </div>
                 <div class="col-6 col-lg-1">
