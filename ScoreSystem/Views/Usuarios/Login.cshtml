@@ -1,6 +1,15 @@
 ﻿@{
     Layout = null;
 }
+
+@if (TempData["Erro"] != null)
+{
+
+    <script type="text/javascript">
+        swal("Oops", '@TempData["Erro"]', "error");
+    </script>
+
+}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

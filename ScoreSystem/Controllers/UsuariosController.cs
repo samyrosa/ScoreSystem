@@ -25,6 +25,14 @@ namespace ScoreSystem.Controllers
 
         public IActionResult Login(string Cpf, string Senha)
         {
+            if (Cpf == null)
+            {
+                TempData["Erro"] = "O campo CPF deve ser preenchido";
+            }
+            if (Senha == null)
+            {
+                TempData["Erro"] = "O campo Senha deve ser preenchido";
+            }
             var usuario = db.USUARIO.FirstOrDefault(u => u.CPF == Cpf && u.SENHA == Senha);
 
             if(usuario != null)
@@ -33,7 +41,7 @@ namespace ScoreSystem.Controllers
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "CPF e/ou senha incorreta");
+                TempData["Erro"] = "O campo CPF e/ou Senha são invalido";
                 return View();
 
             }
