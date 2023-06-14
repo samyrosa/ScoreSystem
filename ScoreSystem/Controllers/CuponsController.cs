@@ -23,9 +23,9 @@ namespace ScoreSystem.Controllers
             return View(model);
         }
 
-        public IActionResult Visualizar(int codigo)
+        public IActionResult Visualizar(int id)
         {
-            var cupom = db.CUPOM.Find(codigo);
+            var cupom = db.CUPOM.Find(id);
 
             if (cupom != null)
             {
@@ -39,16 +39,35 @@ namespace ScoreSystem.Controllers
 
         }
 
-        public ActionResult Excluir(int codigo)
+        public ActionResult Excluir(int id)
         {
-            Cupom item = db.CUPOM.Find(codigo);
+            Cupom item = db.CUPOM.Find(id);
             if (item != null)
             {
                 db.CUPOM.Remove(item);
                 db.SaveChanges();
+
+                TempData["Sucesso"] = "Cupom excluido com sucesso";
+
             }
 
             return RedirectToAction("Lista");
+        }
+        public IActionResult Editar(int id)
+        {
+            Cupom item = db.CUPOM.Find(id);
+            if (item != null)
+            {
+                db.CUPOM.Update(item);
+                db.SaveChanges();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Lista");
+            }
+
+
         }
 
         public IActionResult SalvarDados(Cupom dados)

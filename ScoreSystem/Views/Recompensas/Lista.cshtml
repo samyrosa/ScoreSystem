@@ -99,3 +99,14 @@
         </div>
     </div>
 </div>
+
+<script src="~/lib/sweet-alert/sweetalert.min.js"></script>
+
+@if (TempData["Sucesso"] != null)
+{
+
+    <script type="text/javascript">
+        swal("Sucesso", "@TempData["Sucesso"]", "success");
+    </script>
+
+}

@@ -2,6 +2,7 @@
     ViewData["Title"] = "Manutenção de Cupons";
 }
 
+
 @model List<ScoreSystem.Entidades.Cupom>
 <h3 class="ms-2 text-light"><i class="bi bi-bookmark-fill"></i> Manutenção de Cupons</h3>
 <div class="card shadow">
@@ -99,3 +100,14 @@
         </div>
     </div>
 </div>
+
+<script src="~/lib/sweet-alert/sweetalert.min.js"></script>
+
+@if (TempData["Sucesso"] != null)
+{
+
+    <script type="text/javascript">
+        swal("Sucesso", "@TempData["Sucesso"]", "success");
+    </script>
+
+}

@@ -86,3 +86,8 @@ div#cardCadastro {
 ul.listInfo > li::marker {
     content: none;
 }
+
+#CardCupom,
+#CardRecompensa {
+    height: 350px;
+}

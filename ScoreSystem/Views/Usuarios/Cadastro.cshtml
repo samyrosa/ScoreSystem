@@ -30,27 +30,37 @@
                 <hr />
                 <form action="/Usuarios/SalvarDados" class="d-flex flex-column gap-3" method="post" enctype="multipart/form-data">
                     <section>
-                        <label for="Nome">Nome</label>
+                        <label for="Nome">Nome
+                            <span class="text-danger">*</span>
+                        </label>
                         <input type="text" name="NOME" id="nome" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
-                        <label for="cpf">CPF</label>
+                        <label for="cpf">CPF
+                            <span class="text-danger">*</span>
+                        </label>
                         <input type="text" name="CPF" id="cpf" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
-                        <label for="email">Email</label>
+                        <label for="email">Email4
+                            <span class="text-danger">*</span>
+                        </label>
                         <input type="email" name="EMAIL" id="email" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
-                        <label for="password">Senha</label>
+                        <label for="password">Senha
+                            <span class="text-danger">*</span>
+                        </label>
                         <input type="password" name="SENHA" id="password" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
-                        <label for="password">Confirmar Senha</label>
+                        <label for="password">Confirmar Senha
+                            <span class="text-danger">*</span>
+                        </label>
                         <input type="password" name="SENHA" id="password2" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
@@ -72,7 +82,21 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/sweet-alert/sweetalert.min.js"></script>
+    <script src="~/lib/jquery-mask/jquery.mask.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        $('input[name="CPF"]').mask('000.000.000-00');
+    </script>
+
+    @if (TempData["Alert"] != null)
+    {
+
+        <script type="text/javascript">
+            swal("Atenção", "@TempData["Alert"]", "warning");
+        </script>
+
+    }
+    
 </body>
 </html>
