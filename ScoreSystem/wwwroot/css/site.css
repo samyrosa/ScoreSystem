@@ -91,3 +91,41 @@ ul.listInfo > li::marker {
 #CardRecompensa {
     height: 350px;
 }
+
+/*BARRA DE ROLAGEM*/
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #14213D #DFE9EB;
+}
+
+    /* Chrome, Edge and Safari */
+    *::-webkit-scrollbar {
+        width: 10px;
+        width: 10px;
+    }
+
+    *::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background-color: #DFE9EB;
+    }
+
+        *::-webkit-scrollbar-track:hover {
+            background-color: #B8C0C2;
+        }
+
+        *::-webkit-scrollbar-track:active {
+            background-color: #B8C0C2;
+        }
+
+    *::-webkit-scrollbar-thumb {
+        border-radius: 20px;
+        background-color: #14213D;
+    }
+
+        *::-webkit-scrollbar-thumb:hover {
+            background-color: #263F74;
+        }
+
+        *::-webkit-scrollbar-thumb:active {
+            background-color: #3A60B2;
+        }

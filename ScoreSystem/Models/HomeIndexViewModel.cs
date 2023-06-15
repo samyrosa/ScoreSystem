@@ -16,3 +16,5 @@ namespace ScoreSystem.Models
         public List<Recompensas> todasRecompensas { get; set; }
     }
 }
+
+

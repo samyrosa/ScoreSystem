@@ -1,4 +1,6 @@
-﻿<h3 class="ms-2 text-light"><i class="bi bi-person-fill"></i> Manutenção de Usuarios</h3>
+﻿@model List<ScoreSystem.Entidades.Usuarios>
+
+<h3 class="ms-2 text-light"><i class="bi bi-person-fill"></i> Manutenção de Usuarios</h3>
 <div class="card shadow">
     <div class="card-body">
         <div class="row">
@@ -42,88 +44,57 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                        <tr>
-                            <td scope="row">3650</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td class="">458.485.744-60</td>
-                            <td class="">Administrador</td>
-                            <td class="text-end">
-                                <div class="dropdown-center me-3">
-                                    <a class="link-dark" type="button" data-bs-toggle="dropdown"
-                                       aria-expanded="false">
-                                        <i class="bi bi-three-dots"></i>
-                                    </a>
-                                    <ul class="dropdown-menu mx-0 shadow w-220px" data-bs-theme="light">
-                                        <li>
-                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                                                <i class="bi bi-eye-fill"></i>
-                                                Visualizar
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                                                <i class="bi bi-pencil-square"></i>
-                                                Editar
-                                            </a>
-                                        </li>
+                        @foreach (var usuario in Model)
+                        {
+                            <tr>
+                                <td scope="row">@usuario.CODIGO</td>
+                                <td>@usuario.NOME</td>
+                                <td class="">@usuario.CPF</td>
+                                @if (usuario.TIPO == "A")
+                                {
+                                    <td>Administrador</td>
+                                }
+                                else
+                                {
+                                    <td>Cliente</td>
 
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item link-danger dropdown-item-danger d-flex gap-2 align-items-center"
-                                               href="#">
-                                                <i class="bi bi-trash"></i>
-                                                Deletar
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
+                                }
+                                <td class="text-end">
+                                    <div class="dropdown-center me-3">
+                                        <a class="link-dark" type="button" data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+                                            <i class="bi bi-three-dots"></i>
+                                        </a>
+                                        <ul class="dropdown-menu mx-0 shadow w-220px" data-bs-theme="light">
+                                            <li>
+                                                <a class="dropdown-item d-flex gap-2 align-items-center" href="/Usuarios/Visualizar/@usuario.CODIGO">
+                                                    <i class="bi bi-eye-fill"></i>
+                                                    Visualizar
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item d-flex gap-2 align-items-center" href="/Usuarios/Editar/@usuario.CODIGO">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                    Editar
+                                                </a>
+                                            </li>
 
-                        </tr>
-                        <tr>
-                            <td scope="row">3650</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td class="">458.485.744-60</td>
-                            <td class="">Cliente</td>
-                            <td class="text-end">
-                                <div class="dropdown-center me-3">
-                                    <a class="link-dark" type="button" data-bs-toggle="dropdown"
-                                       aria-expanded="false">
-                                        <i class="bi bi-three-dots"></i>
-                                    </a>
-                                    <ul class="dropdown-menu mx-0 shadow w-220px" data-bs-theme="light">
-                                        <li>
-                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                                                <i class="bi bi-eye-fill"></i>
-                                                Visualizar
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                                                <i class="bi bi-pencil-square"></i>
-                                                Editar
-                                            </a>
-                                        </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item link-danger dropdown-item-danger d-flex gap-2 align-items-center"
+                                                   href="/Usuarios/Excluir/@usuario.CODIGO">
+                                                    <i class="bi bi-trash"></i>
+                                                    Deletar
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
 
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item link-danger dropdown-item-danger d-flex gap-2 align-items-center"
-                                               href="#">
-                                                <i class="bi bi-trash"></i>
-                                                Deletar
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-
-                        </tr>
-
-
+                        }
                     </tbody>
                 </table>
             </div>
@@ -131,3 +102,13 @@
         </div>
     </div>
 </div>
+
+<script src="~/lib/sweet-alert/sweetalert.min.js"></script>
+
+@if (TempData["Sucesso"] != null)
+{
+
+    <script type="text/javascript">
+        swal("Sucesso", "@TempData["Sucesso"]", "success");
+    </script>
+}
