@@ -5,7 +5,7 @@ using ScoreSystem.Models;
 
 namespace ScoreSystem.Controllers
 {
-    [Authorize(Roles ="Administrador")]
+    //[Authorize(Roles ="Administrador")]
     public class CuponsController : Controller
     {
         private Contexto db;
@@ -14,11 +14,14 @@ namespace ScoreSystem.Controllers
 
             db = contexto;
         }
+
+        [Authorize(Roles ="Administrador")]
         public IActionResult Lista()
         {
             return View(db.CUPOM.ToList());
         }
 
+        [Authorize(Roles ="Administrador")]
         public IActionResult Cadastro()
         {
             CuponsViewModel model = new CuponsViewModel();
@@ -41,6 +44,7 @@ namespace ScoreSystem.Controllers
 
         }
 
+        [Authorize(Roles ="Administrador")]
         public ActionResult Excluir(int id)
         {
             Cupom item = db.CUPOM.Find(id);
@@ -55,6 +59,7 @@ namespace ScoreSystem.Controllers
 
             return RedirectToAction("Lista");
         }
+        [Authorize(Roles ="Administrador")]
         public IActionResult Editar(int id)
         {
             Cupom item = db.CUPOM.Find(id);
@@ -69,11 +74,10 @@ namespace ScoreSystem.Controllers
 
         }
 
+        [Authorize(Roles ="Administrador")]
         public IActionResult SalvarDados(Cupom dados)
         {
             
-           
-
             if(dados.CODIGO > 0)
             {
                 db.CUPOM.Update(dados);

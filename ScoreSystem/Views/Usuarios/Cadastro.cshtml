@@ -28,7 +28,7 @@
                     <a href="/Usuarios/Login" class="link-primary text-decoration-none">Entrar</a>
                 </div>
                 <hr />
-                <form action="/Usuarios/SalvarDados" class="d-flex flex-column gap-3" method="post" onsubmit="return Validacao()" enctype="multipart/form-data">
+                <form action="/Usuarios/SalvarDados" class="d-flex flex-column gap-3" method="post" onsubmit="return Validacao()">
                     <section>
                         <label for="Nome">
                             Nome
@@ -42,12 +42,12 @@
                             CPF
                             <span class="text-danger">*</span>
                         </label>
-                        <input type="text" name="CPF" id="cpf" class="form-control shadow-sm"
+                        <input type="text" name="CPF" id="Cpf" class="form-control shadow-sm"
                                autocomplete="off">
                     </section>
                     <section>
                         <label for="email">
-                            Email4
+                            Email
                             <span class="text-danger">*</span>
                         </label>
                         <input type="email" name="EMAIL" id="Email" class="form-control shadow-sm"
@@ -94,38 +94,40 @@
         $('input[name="CPF"]').mask('000.000.000-00');
     </script>
 
+  
     @section Scripts{
         <script src="~/lib/sweet-alert/sweetalert.min.js"></script>
         <script>
             function Validacao() {
                 if ($("#Nome").val() == "") {
-                    swal("Erro", "O campo Nome não pode está vazio!", "error");
+                    swal("Atenção", "O campo Nome não pode está vazio!", "warning");
                     return false;
-                } else if ($("#cpf").val() == "") {
-                    swal("Erro", "O campo CPF não pode está vazio!", "error");
+                } else if ($("#Cpf").val() == "") {
+                    swal("Atenção", "O campo CPF não pode está vazio!", "warning");
+                    return false;
+                } else if ($("#Tipo").val() == "") {
+                    swal("Atenção", "O campo Tipo não pode está vazio!", "warning");
+                    return false;
+                } else if ($("#Email").val() == "") {
+                    swal("Atenção", "O campo Email não pode está vazio!", "warning");
                     return false;
                 }
-                else if ($("#Email").val() == "") {
-                    swal("Erro", "O campo Email não pode está vazio!", "error");
+                else if ($("#Senha").val() == "") {
+                    swal("Atenção", "O campo Senha não pode está vazio!", "warning");
                     return false;
 
-                } else if ($("#Senha").val() == "") {
-                    swal("Erro", "O Snha não pode está vazio!", "error");
-                    return false;
                 } else if ($("#Senha2").val() == "") {
-                    swal("Erro", "O Confirmar Senhanão pode está vazio!", "error");
+                    swal("Atenção", "O campo Confirmar Senha não pode está vazio!", "warning");
                     return false;
                 }
-                 else {
-                    swal("Sucesso", "Recompensa cadastrado com sucesso!", "success");
-                    return true
+
+                if ($("#Senha").val() != $("#Senha2").val()) {
+
+                    swal("Atenção", "As senhas não são iguais!", "warning");
+                    return false;
                 }
-
-
-
             }
         </script>
     }
-
 </body>
 </html>

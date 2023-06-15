@@ -7,7 +7,6 @@ using System.Data;
 
 namespace ScoreSystem.Controllers
 {
-    [Authorize(Roles = "Administrador")]
     public class RecompensasController : Controller
     {
         private Contexto db;
@@ -17,10 +16,14 @@ namespace ScoreSystem.Controllers
             db = contexto;
         }
 
+        [Authorize(Roles = "Administrador")]
+
         public IActionResult Lista()
         {
             return View(db.RECOMPENSA.ToList());
         }
+
+        [Authorize(Roles = "Administrador")]
         public IActionResult Cadastro()
         {
             RecompensasViewModel model = new RecompensasViewModel();
@@ -41,6 +44,8 @@ namespace ScoreSystem.Controllers
             }
 
         }
+
+        [Authorize(Roles = "Administrador")]
         public IActionResult Editar(int id)
         {
             Recompensas item = db.RECOMPENSA.Find(id);
@@ -57,6 +62,7 @@ namespace ScoreSystem.Controllers
 
         }
 
+        [Authorize(Roles = "Administrador")]
         public ActionResult Excluir(int id)
         {
             Recompensas item = db.RECOMPENSA.Find(id);
@@ -71,6 +77,8 @@ namespace ScoreSystem.Controllers
 
             return RedirectToAction("Lista");
         }
+
+        [Authorize(Roles = "Administrador")]
         public IActionResult SalvarDados(Recompensas dados)
         {
             if (dados.CODIGO > 0)
@@ -94,5 +102,5 @@ namespace ScoreSystem.Controllers
             return RedirectToAction("Lista");
         }
     }
-    
+
 }

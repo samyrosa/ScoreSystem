@@ -1,0 +1,81 @@
+﻿@model ScoreSystem.Entidades.Usuarios
+
+<h3 class="ms-2 text-light"><i class="bi bi-person-fill"></i> Vizualizar Usuario</h3>
+
+<form action="" method="post">
+
+    <div class="card shadow">
+        <div class="card-body">
+
+            <div class="row g-2">
+
+                <div class="col-12 col-lg-7">
+                    <label for="titulo" class="form-label m-1">Nome</label>
+                    <input type="text" name="NOME" value="@Model.NOME" class="form-control form-control-sm" id="Nome" disabled>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <label for="titulo" class="form-label m-1">CPF</label>
+                    <input type="text" name="CPF" value="@Model.CPF" class="form-control form-control-sm" id="Cpf" disabled>
+                </div>
+
+                <div class="col-12 col-lg-2">
+                    <label for="titulo" class="form-label m-1">Tipo</label>
+                    @if (Model.TIPO == "C")
+                    {
+                        <input type="text" name="TIPO" value="Cliente" class="form-control form-control-sm" id="Tipo" disabled>
+                    }
+                    else
+                    {
+                        <input type="text" name="TIPO" value="Administrador" class="form-control form-control-sm" id="Tipo" disabled>
+
+                    }
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <label for="titulo" class="form-label m-1">Email</label>
+                    <input type="email" name="EMAIL" value="@Model.EMAIL" class="form-control form-control-sm" id="Email" disabled>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <label for="titulo" class="form-label m-1">Senha</label>
+                    <input type="password" name="SENHA" class="form-control form-control-sm" id="Senha" disabled>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <label for="titulo" class="form-label m-1">Confirme Senha</label>
+                    <input type="password" name="SENHA" class="form-control form-control-sm" id="Senha" disabled>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+
+            <div class="row g-2">
+
+                <div class="col-6">
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked disabled>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Ativado
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-mask/jquery.mask.js"></script>
+
+<script>
+    $('input[name="CPF"]').mask('000.000.000-00');
+</script>

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="utf-8" />
@@ -48,28 +49,8 @@
             </ul>
 
             <div class="col-md-3 text-end">
-
-                <div class="nav-item dropdown">
-                    <a class="dropdown-toggle text-light text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu text-light">
-                        <li>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="AcessoNegado">
-                                <i class="bi bi-box-arrow-left"></i> Sair
-                            </a>
-                        </li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li>
-                            <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="Login">
-                                <i class="bi bi-box-arrow-left"></i> Sair
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                @*<a type="button" class="btn btn-sm btn-outline-light me-2" asp-area="" asp-controller="Usuarios" asp-action="Login">Entrar</a>
-                <a type="button" class="btn btn-sm btn-warning" asp-area="" asp-controller="Usuarios" asp-action="Cadastro">Cadastrar</a>*@
+               
+                <a type="button" class="btn btn-sm btn-outline-light me-2" asp-area="" asp-controller="Usuarios" asp-action="LogOff"><i class="bi bi-box-arrow-left"></i> Sair</a>
             </div>
         </header>
 
@@ -105,12 +86,8 @@
                 </a>
             </div>
         </footer>
-
-
+        
     </div>
-
-
-
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/sweet-alert/sweetalert.min.js"></script>

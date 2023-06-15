@@ -5,7 +5,7 @@
 
 <h3 class="ms-2 text-light">Bem Vindo!</h3>
 <div class="row g-2">
-    <div class="col-12 col-lg-9">
+    <div class="col-12 col-lg-12">
         <div class="card shadow h-100">
             <div class="card-body">
                 <h5 class="card-title"><i class="bi bi-person-fill"></i> Informaçoes do Usuario</h5>
@@ -15,17 +15,15 @@
                     <li><b>Email:</b>  @Model.usuarioLogado.EMAIL</li>
                     <li><b>CPF:</b>  @Model.usuarioLogado.CPF</li>
                 </ul>
-                <button type="button" class="btn btn-outline-primary btn-sm">
-                    <i class="bi bi-person-fill-gear"></i> Editar Informações
-                </button>
-                <button type="button" class="btn btn-outline-danger btn-sm">
+                <a href="/Usuarios/ExcluirPerfil/@Model.usuarioLogado.CODIGO" class="btn btn-outline-danger btn-sm">
                     <i class="bi bi-person-fill-x"></i> Excluir Conta
-                </button>
+                </a>
 
             </div>
+
         </div>
     </div>
-    <div class="col-12 col-lg-3">
+@*    <div class="col-12 col-lg-3">
         <div class="card shadow h-100">
             <div class="card-body">
                 <h5 class="card-title"><i class="bi bi-percent"></i> Pontuação</h5>
@@ -40,7 +38,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
     <div class="col-12 col-lg-6">
         <div id="CardCupom" class="card overflow-auto shadow">
             <div class="card-body">
@@ -49,17 +47,14 @@
                 <div class="list-group list-group-flush">
                     @foreach (var item in Model.todosCupons)
                     {
-                        <a href="/cupons/Visualizar" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+                        <a href="/Cupons/Visualizar/@item.CODIGO" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
-                                <div class="fw-bold">Subheading</div>
-                                Content for list item
+                                <div class="fw-bold">@item.TITULO</div>
+                                @item.DESCRICAO
                             </div>
-                            <span class="badge bg-success rounded-pill">+35 Pts</span>
+                            <span class="badge bg-success rounded-pill">+ @item.PONTO Pts</span>
                         </a>
                     }
-                    
-                  
-
 
                 </div>
             </div>
@@ -73,15 +68,14 @@
                 <div class="list-group list-group-flush">
                     @foreach (var item in Model.todasRecompensas)
                     {
-                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+                        <a href="/Recompensas/Visualizar/@item.CODIGO" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold">@item.TITULO</div>
-                                Content for list item
+                                @item.DESCRICAO
                             </div>
-                            <span class="badge bg-danger rounded-pill">-35 Pts</span>
+                            <span class="badge bg-danger rounded-pill">- @item.PONTO Pts</span>
                         </a>
                     }
-                  
 
                 </div>
             </div>
@@ -89,3 +83,13 @@
     </div>
 </div>
 
+<script src="~/lib/sweet-alert/sweetalert.min.js"></script>
+
+@if (TempData["Sucesso"] != null)
+{
+
+    <script type="text/javascript">
+        swal("Sucesso", "@TempData["Sucesso"]", "success");
+    </script>
+
+}
